@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+
+Properties localConfig = new Properties()
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId appId
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode verCode
+        versionName verName
+        testInstrumentationRunner testInstrumentRunner
+    }
+
+    signingConfigs {
+        debug {
+            localConfig.load(project.rootProject.file('config/config-debug.properties').newDataInputStream())
+            storeFile file('../config/map-debug.jks')
+            storePassword localConfig['debug.storePassword']
+            keyAlias localConfig['debug.keyAlias']
+            keyPassword localConfig['debug.keyPassword']
+        }
+        release {
+            localConfig.load(project.rootProject.file('config/config-release.properties').newDataInputStream())
+            storeFile file('../config/map-release.jks')
+            storePassword localConfig['release.storePassword']
+            keyAlias localConfig['release.keyAlias']
+            keyPassword localConfig['release.keyPassword']
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":data")
+    implementation project(":domain")
+
+    implementation appImplementationDeps
+    kapt appAptDeps
+
+    testImplementation appTestImplementationDeps
+}

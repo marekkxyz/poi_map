@@ -1,0 +1,208 @@
+ext.versions = [
+        kotlin                         : '1.3.71',
+
+        // android sdk versions
+        minSdk                         : 21,
+        tragetSdk                      : 29,
+        compileSdk                     : 29,
+
+        // gradle
+        androidGradlePlugin            : '3.6.3',
+
+        // rx
+        rxJava                         : '2.2.19',
+        rxAndroid                      : '2.1.1',
+        rxKotlin                       : '2.4.0',
+
+        // rx location
+        rxLocation                     : '2.1',
+
+        // retrofit
+        retrofit                       : '2.9.0',
+        gson                           : '2.9.0',
+        retrofitRxExt                  : '2.9.0',
+
+        okHttpVersion                  : '4.7.2',
+
+        // glide
+        glide                          : '4.11.0',
+
+        // svg
+        androidSvg                     : '1.4',
+
+        // androidx
+        androidx                       : '1.1.0',
+        material                       : '1.1.0',
+        constraintLayout               : '2.0.0-beta6',
+
+        supportDesign                  : '28.0.0',
+
+        // permission
+        permissions                    : '4.7.0',
+
+        // dagger
+        javaxInject                    : '1',
+        dagger                         : '2.27',
+
+        // play-services
+        playServices                   : '17.0.0',
+
+        // tests
+        jUnit                          : '4.13-beta-3',
+        mockito                        : '3.3.3',
+        mockitoKotlin                  : '2.2.0',
+        rxSchedulerRule                : '1.0.2',
+
+        // timber
+        timber                         : '4.7.1'
+
+]
+
+ext.gradlePlugins = [
+        android: "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+        kotlin : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+]
+
+ext.libraries = [
+        rxJava                         : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+        rxAndroid                      : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+        rxKotlin                       : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+
+        rxLocation                     : "pl.charmas.android:android-reactive-location2:$versions.rxLocation@aar",
+
+        retrofit                       : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitGson                   : "com.squareup.retrofit2:converter-gson:$versions.gson",
+        retrofitRx2                    : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofitRxExt",
+
+        okHttpLogging                  : "com.squareup.okhttp3:logging-interceptor:$versions.okHttpVersion",
+        okHttp                         : "com.squareup.okhttp3:okhttp:$versions.okHttpVersion",
+
+        glide                          : "com.github.bumptech.glide:glide:$versions.glide",
+        glideCompiler                  : "com.github.bumptech.glide:compiler:$versions.glide",
+
+        androidSvg                     : "com.caverock:androidsvg-aar:$versions.androidSvg",
+
+        androidx                       : "androidx.appcompat:appcompat:$versions.androidx",
+        androidxRecyclerView           : "androidx.recyclerview:recyclerview:$versions.androidx",
+        material                       : "com.google.android.material:material:$versions.material",
+        constraintLayout               : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        supportDesign                  : "com.android.support:design:$versions.supportDesign",
+
+        permissions                    : "org.permissionsdispatcher:permissionsdispatcher:$versions.permissions",
+        permissionsProcessor           : "org.permissionsdispatcher:permissionsdispatcher-processor:$versions.permissions",
+
+        javaxInject                    : "javax.inject:javax.inject:$versions.javaxInject",
+        dagger                         : "com.google.dagger:dagger:$versions.dagger",
+        daggerAndroid                  : "com.google.dagger:dagger-android:$versions.dagger",
+        daggerAndroidSupport           : "com.google.dagger:dagger-android-support:$versions.dagger",
+        daggerCompiler                 : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerAndroidProcessor         : "com.google.dagger:dagger-android-processor:$versions.dagger",
+
+        kotlin                         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+
+        playServicesMaps               : "com.google.android.gms:play-services-maps:$versions.playServices",
+        playServicesLocation           : "com.google.android.gms:play-services-location:$versions.playServices",
+        playServicesPlaces             : "com.google.android.gms:play-services-places:$versions.playServices",
+
+        junit                          : "junit:junit:$versions.jUnit",
+        mockito                        : "org.mockito:mockito-inline:$versions.mockito",
+        mockitoKotlin                  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+        rxSchedulerRule                : "com.github.Plastix.RxSchedulerRule:rx2:$versions.rxSchedulerRule",
+        timber                         : "com.jakewharton.timber:timber:$versions.timber"
+]
+
+// app module
+
+ext.appImplementationDeps = [
+        libraries.kotlin,
+        libraries.rxJava,
+        libraries.rxAndroid,
+        libraries.rxKotlin,
+        libraries.rxLocation,
+        libraries.retrofit,
+        libraries.retrofitGson,
+        libraries.retrofitRx2,
+        libraries.glide,
+        libraries.androidSvg,
+        libraries.androidx,
+        libraries.androidxRecyclerView,
+        libraries.material,
+        libraries.constraintLayout,
+        libraries.supportDesign,
+        libraries.material,
+        libraries.permissions,
+        libraries.javaxInject,
+        libraries.dagger,
+        libraries.daggerAndroid,
+        libraries.daggerAndroidSupport,
+        libraries.playServicesMaps,
+        libraries.playServicesLocation,
+        libraries.playServicesPlaces,
+        libraries.timber,
+]
+
+ext.appAptDeps = [
+        libraries.daggerCompiler,
+        libraries.daggerAndroidProcessor,
+        libraries.permissionsProcessor,
+        libraries.glideCompiler,
+]
+
+ext.appTestImplementationDeps = [
+        libraries.junit,
+        libraries.kotlin,
+        libraries.mockito,
+        libraries.mockitoKotlin,
+        "com.github.Plastix.RxSchedulerRule:rx2:${versions.rxSchedulerRule}",
+]
+
+// data module
+
+ext.dataImplementationDeps = [
+        libraries.kotlin,
+        libraries.rxJava,
+        libraries.rxKotlin,
+        libraries.retrofit,
+        libraries.retrofitGson,
+        libraries.retrofitRx2,
+        libraries.okHttp,
+        libraries.okHttpLogging,
+        libraries.androidx,
+        libraries.androidxRecyclerView,
+        libraries.material,
+        libraries.constraintLayout,
+        libraries.javaxInject,
+        libraries.dagger,
+        libraries.daggerAndroid,
+        libraries.daggerAndroidSupport,
+        libraries.timber,
+]
+
+ext.dataAptDeps = [
+        libraries.kotlin,
+        libraries.daggerCompiler,
+        libraries.daggerAndroidProcessor,
+]
+
+ext.dataTestImplementationDeps = [
+        libraries.junit,
+        libraries.kotlin,
+        libraries.mockito,
+        libraries.mockitoKotlin,
+]
+
+// domain module
+
+ext.domainImplementationDeps = [
+        libraries.javaxInject,
+        libraries.kotlin,
+        libraries.rxJava,
+        libraries.rxKotlin,
+]
+
+ext.domainTestImplementationDeps = [
+        libraries.junit,
+        libraries.kotlin,
+        libraries.mockito,
+        libraries.mockitoKotlin,
+]

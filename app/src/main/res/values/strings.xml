@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PoiMap</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="permission_location_denied">To use this feature we need your enable location permission from application settings</string>
+
+    <string name="sheet_get_there_btn_label">Get there</string>
+    <string name="sheet_suggested_route_info">Suggested Route Info</string>
+
+    <string name="error_poi_details">Error while retrieve POI details</string>
+    <string name="error_pois">Error while retrieve Points Of Interests</string>
+    <string name="error_route">Error while retrieve route</string>
+</resources>
