@@ -1,5 +1,8 @@
-package com.mkaszycki.data
+package com.mkaszycki.data.api.wikipedia
 
+import com.mkaszycki.data.api.wikipedia.response.PoiImageResponse
+import com.mkaszycki.data.api.wikipedia.response.PoiResponse
+import com.mkaszycki.data.api.wikipedia.response.PoisResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

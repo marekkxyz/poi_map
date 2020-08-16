@@ -1,4 +1,4 @@
-package com.mkaszycki.data
+package com.mkaszycki.data.api.heremap
 
 class HereMapApi {
     companion object {

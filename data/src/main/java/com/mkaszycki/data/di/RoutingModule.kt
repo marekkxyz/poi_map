@@ -1,7 +1,7 @@
-package com.mkaszycki.data.route.di
+package com.mkaszycki.data.di
 
 import com.mkaszycki.data.BuildConfig
-import com.mkaszycki.data.route.RoutingService
+import com.mkaszycki.data.api.heremap.RoutingService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

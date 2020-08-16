@@ -1,5 +1,7 @@
 package com.mkaszycki.data
 
+import com.mkaszycki.data.api.wikipedia.PoiService
+import com.mkaszycki.data.api.wikipedia.response.toDomainPoi
 import com.mkaszycki.poimap.domain.Poi
 import com.mkaszycki.poimap.domain.PoiDetails
 import com.mkaszycki.poimap.domain.PoiRepository
@@ -8,16 +10,13 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class PoiDataRepository @Inject constructor(
-    private val poiService: PoiService,
-    private val poiEntityMapper: PoiEntityMapper
+    private val poiService: PoiService
 ) :
     PoiRepository {
     override fun getPois(lat: Double, lng: Double): Single<List<Poi>> {
         return poiService.fetchPois(radius = radius, cords = "$lat|$lng", limit = limit)
             .map { poisResponse ->
-                poisResponse.queryResult.pois.map { poiEntity ->
-                    poiEntityMapper.map(poiEntity)
-                }
+                poisResponse.queryResult.pois.map { it.toDomainPoi() }
             }
     }
 
@@ -41,7 +40,8 @@ class PoiDataRepository @Inject constructor(
                         }
                     }
                     .map {
-                        PoiDetails(poiPage.title, poiPage.description, it) }
+                        PoiDetails(poiPage.title, poiPage.description, it)
+                    }
             }
         }
     }

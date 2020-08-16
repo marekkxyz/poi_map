@@ -1,7 +1,7 @@
 package com.mkaszycki.data.di
 
 import com.mkaszycki.data.BuildConfig
-import com.mkaszycki.data.PoiService
+import com.mkaszycki.data.api.wikipedia.PoiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -16,7 +16,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class NetworkModule {
+class PoiModule {
 
     @Provides
     fun providesRetrofit(@Named("baseUrl") baseUrl: String, gson: Gson): Retrofit =

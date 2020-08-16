@@ -1,5 +1,6 @@
-package com.mkaszycki.data.route
+package com.mkaszycki.data.api.heremap
 
+import com.mkaszycki.data.api.heremap.response.RoutingResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

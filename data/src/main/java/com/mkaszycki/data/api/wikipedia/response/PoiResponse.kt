@@ -1,4 +1,4 @@
-package com.mkaszycki.data
+package com.mkaszycki.data.api.wikipedia.response
 
 import com.google.gson.annotations.SerializedName
 

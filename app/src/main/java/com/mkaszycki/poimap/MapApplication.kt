@@ -1,6 +1,6 @@
 package com.mkaszycki.poimap
 
-import com.mkaszycki.data.HereMapApi
+import com.mkaszycki.data.api.heremap.HereMapApi
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import timber.log.Timber

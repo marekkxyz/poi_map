@@ -1,6 +1,7 @@
-package com.mkaszycki.data
+package com.mkaszycki.data.api.wikipedia.response
 
 import com.google.gson.annotations.SerializedName
+import com.mkaszycki.poimap.domain.Poi
 
 data class PoisResponse(
     @SerializedName("query") val queryResult: Geosearch
@@ -16,3 +17,5 @@ data class PoiEntity(
     @SerializedName("lat") val latitude: Double,
     @SerializedName("lon") val longitude: Double
 )
+
+fun PoiEntity.toDomainPoi(): Poi = Poi(id, latitude, longitude, title)
