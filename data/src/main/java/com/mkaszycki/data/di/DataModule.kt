@@ -1,11 +1,11 @@
 package com.mkaszycki.data.di
 
 import com.mkaszycki.data.PoiRepositoryImpl
-import com.mkaszycki.data.RoutingRepositoryImpl
+import com.mkaszycki.data.RouteRepositoryImpl
 import com.mkaszycki.data.api.heremap.RoutingService
 import com.mkaszycki.data.api.wikipedia.PoiService
 import com.mkaszycki.poimap.domain.PoiRepository
-import com.mkaszycki.poimap.domain.RoutingRepository
+import com.mkaszycki.poimap.domain.RouteRepository
 import dagger.Module
 import dagger.Provides
 
@@ -15,6 +15,6 @@ class DataModule {
     fun providesPoiRepository(poiService: PoiService): PoiRepository = PoiRepositoryImpl(poiService)
 
     @Provides
-    fun providesRoutingRepository(routingService: RoutingService): RoutingRepository =
-        RoutingRepositoryImpl(routingService)
+    fun providesRoutingRepository(routingService: RoutingService): RouteRepository =
+        RouteRepositoryImpl(routingService)
 }

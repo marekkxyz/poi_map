@@ -2,16 +2,16 @@ package com.mkaszycki.data
 
 import com.mkaszycki.data.api.heremap.RoutingService
 import com.mkaszycki.data.api.heremap.response.toDomainRoute
-import com.mkaszycki.poimap.domain.RoutingRepository
+import com.mkaszycki.poimap.domain.RouteRepository
 import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
 import com.mkaszycki.poimap.domain.route.Route
 import io.reactivex.Single
 import javax.inject.Inject
 
-class RoutingRepositoryImpl @Inject constructor(
+class RouteRepositoryImpl @Inject constructor(
     private val routingService: RoutingService
 ) :
-    RoutingRepository {
+    RouteRepository {
     override fun getRoute(origin: LatLngDomain, destination: LatLngDomain): Single<Route> {
         return routingService.getRoute(
             origin = "${origin.latitude},${origin.longitude}",

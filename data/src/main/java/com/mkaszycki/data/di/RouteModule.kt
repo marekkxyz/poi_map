@@ -1,8 +1,8 @@
 package com.mkaszycki.data.di
 
+import com.google.gson.Gson
 import com.mkaszycki.data.BuildConfig
 import com.mkaszycki.data.api.heremap.RoutingService
-import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers
@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class RoutingModule {
+class RouteModule {
     @Provides
     @Singleton
     fun providesRoutingService(gson: Gson): RoutingService {

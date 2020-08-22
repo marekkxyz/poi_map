@@ -2,7 +2,7 @@ package com.mkaszycki.poimap
 
 import com.mkaszycki.data.di.DataModule
 import com.mkaszycki.data.di.PoiModule
-import com.mkaszycki.data.di.RoutingModule
+import com.mkaszycki.data.di.RouteModule
 import com.mkaszycki.poimap.location.di.LocationModule
 import com.mkaszycki.poimap.ui.map.di.MapActivityModule
 import com.mkaszycki.poimap.ui.map.di.MapModule
@@ -19,7 +19,7 @@ import javax.inject.Singleton
         MapApplicationContextModule::class,
         LocationModule::class,
         PoiModule::class,
-        RoutingModule::class,
+        RouteModule::class,
         DataModule::class,
         MapModule::class,
         MapActivityModule::class
