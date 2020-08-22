@@ -9,7 +9,7 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
 
-class PoiDataRepository @Inject constructor(
+class PoiRepositoryImpl @Inject constructor(
     private val poiService: PoiService
 ) :
     PoiRepository {

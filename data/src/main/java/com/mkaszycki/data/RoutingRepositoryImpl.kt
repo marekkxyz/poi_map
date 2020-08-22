@@ -8,7 +8,7 @@ import com.mkaszycki.poimap.domain.route.RoutingRepository
 import io.reactivex.Single
 import javax.inject.Inject
 
-class RoutingDataRepository @Inject constructor(
+class RoutingRepositoryImpl @Inject constructor(
     private val routingService: RoutingService
 ) :
     RoutingRepository {
