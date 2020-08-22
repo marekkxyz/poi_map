@@ -5,7 +5,7 @@ import com.mkaszycki.data.RoutingRepositoryImpl
 import com.mkaszycki.data.api.heremap.RoutingService
 import com.mkaszycki.data.api.wikipedia.PoiService
 import com.mkaszycki.poimap.domain.PoiRepository
-import com.mkaszycki.poimap.domain.route.RoutingRepository
+import com.mkaszycki.poimap.domain.RoutingRepository
 import dagger.Module
 import dagger.Provides
 

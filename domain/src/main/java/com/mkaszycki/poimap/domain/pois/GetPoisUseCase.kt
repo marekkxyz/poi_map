@@ -1,7 +1,7 @@
 package com.mkaszycki.poimap.domain.pois
 
 import com.mkaszycki.poimap.domain.PoiRepository
-import com.mkaszycki.poimap.domain.helper.LatLngDomain
+import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
 import io.reactivex.Single
 import javax.inject.Inject
 

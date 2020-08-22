@@ -2,7 +2,7 @@ package com.mkaszycki.poimap.ui.map.di
 
 import com.mkaszycki.poimap.domain.poidetails.GetPoiDetailsUseCase
 import com.mkaszycki.poimap.domain.pois.GetPoisUseCase
-import com.mkaszycki.poimap.domain.route.GetRoute
+import com.mkaszycki.poimap.domain.route.GetRouteUseCase
 import com.mkaszycki.poimap.location.LocationListener
 import com.mkaszycki.poimap.ui.map.MapViewModelFactory
 import com.mkaszycki.poimap.ui.map.models.PoiDetailsMapper
@@ -20,7 +20,7 @@ class MapModule {
         poiMapper: PoiMapper,
         poiDetailsMapper: PoiDetailsMapper,
         locationListener: LocationListener,
-        getRoute: GetRoute,
+        getRouteUseCase: GetRouteUseCase,
         routeMapper: RouteMapper
     ): MapViewModelFactory = MapViewModelFactory(
         getPoisUseCase,
@@ -28,7 +28,7 @@ class MapModule {
         poiMapper,
         poiDetailsMapper,
         locationListener,
-        getRoute,
+        getRouteUseCase,
         routeMapper
     )
 }

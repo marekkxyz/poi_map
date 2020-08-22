@@ -1,3 +1,5 @@
 package com.mkaszycki.poimap.domain.route
 
-data class Route(val points: List<LatLng>, val suggestions: List<String>)
+import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
+
+data class Route(val points: List<LatLngDomain>, val suggestions: List<String>)

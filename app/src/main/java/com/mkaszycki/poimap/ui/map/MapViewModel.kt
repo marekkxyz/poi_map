@@ -4,9 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.maps.model.LatLng
 import com.mkaszycki.poimap.domain.poidetails.GetPoiDetailsUseCase
 import com.mkaszycki.poimap.domain.pois.GetPoisUseCase
-import com.mkaszycki.poimap.domain.route.GetRoute
+import com.mkaszycki.poimap.domain.route.GetRouteUseCase
 import com.mkaszycki.poimap.location.LocationListener
-import com.mkaszycki.poimap.toDomain
 import com.mkaszycki.poimap.toLatLngDomain
 import com.mkaszycki.poimap.ui.BaseViewModel
 import com.mkaszycki.poimap.ui.map.models.PoiDetailsMapper
@@ -24,7 +23,7 @@ class MapViewModel(
     private val poiMapper: PoiMapper,
     private val poiDetailsMapper: PoiDetailsMapper,
     private val location: LocationListener,
-    private val getRoute: GetRoute,
+    private val getRouteUseCase: GetRouteUseCase,
     private val routeMapper: RouteMapper
 ) : BaseViewModel() {
 
@@ -77,7 +76,10 @@ class MapViewModel(
             return
         }
 
-        getRoute.run(currentPosition!!.toDomain(), lastSelectedPoi!!.latLng.toDomain())
+        getRouteUseCase.run(
+            currentPosition!!.toLatLngDomain(),
+            lastSelectedPoi!!.latLng.toLatLngDomain()
+        )
             .map { routeMapper.map(it) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

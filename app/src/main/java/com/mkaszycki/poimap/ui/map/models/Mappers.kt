@@ -41,7 +41,7 @@ class RouteMapper @Inject constructor() : Mapper<Route, RouteModel> {
     override fun map(obj: Route): RouteModel {
         return with(obj) {
             // Map points from to 'com.google.android.gms.maps.model.LatLng'
-            val points = this.points.map { LatLng(it.lat, it.lng) }
+            val points = this.points.map { LatLng(it.latitude, it.longitude) }
             RouteModel(points, suggestions)
         }
     }

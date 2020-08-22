@@ -3,7 +3,7 @@ package com.mkaszycki.data
 import com.mkaszycki.data.api.wikipedia.PoiService
 import com.mkaszycki.data.api.wikipedia.response.toDomainPoi
 import com.mkaszycki.poimap.domain.PoiRepository
-import com.mkaszycki.poimap.domain.helper.LatLngDomain
+import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
 import com.mkaszycki.poimap.domain.poidetails.PoiDetails
 import com.mkaszycki.poimap.domain.pois.Poi
 import io.reactivex.Flowable

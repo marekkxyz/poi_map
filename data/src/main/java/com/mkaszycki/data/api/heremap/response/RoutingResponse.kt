@@ -1,7 +1,7 @@
 package com.mkaszycki.data.api.heremap.response
 
 import com.google.gson.annotations.SerializedName
-import com.mkaszycki.poimap.domain.route.LatLng
+import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
 import com.mkaszycki.poimap.domain.route.PolylineEncoderDecoder
 import com.mkaszycki.poimap.domain.route.Route
 
@@ -19,7 +19,7 @@ data class ActionItem(@SerializedName("instruction") val instruction: String)
 fun RouteEntity.toDomainRoute(): Route {
     // Map points form LatLngZ to domain LatLng
     val routePoints = PolylineEncoderDecoder.decode(polyline)
-        .map { pointZ: PolylineEncoderDecoder.LatLngZ -> LatLng(pointZ.lat, pointZ.lng) }
+        .map { pointZ: PolylineEncoderDecoder.LatLngZ -> LatLngDomain(pointZ.lat, pointZ.lng) }
     val suggestions = actions.map { it.instruction }
     return Route(routePoints, suggestions)
 }

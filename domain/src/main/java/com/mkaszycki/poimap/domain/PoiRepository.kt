@@ -1,6 +1,6 @@
 package com.mkaszycki.poimap.domain
 
-import com.mkaszycki.poimap.domain.helper.LatLngDomain
+import com.mkaszycki.poimap.domain.coordinates.LatLngDomain
 import com.mkaszycki.poimap.domain.poidetails.PoiDetails
 import com.mkaszycki.poimap.domain.pois.Poi
 import io.reactivex.Single
