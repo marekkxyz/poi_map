@@ -16,3 +16,5 @@ config/config-release.properties
 config/map-release.jks
 todo
 time_spent
+data/config/config-release.properities
+data/config/config-debug.properities

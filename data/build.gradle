@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-kapt"
 
+Properties localConfig = new Properties()
+
 android {
     compileSdkVersion versions.compileSdk
 
@@ -16,7 +18,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            localConfig.load(project.rootProject.file('data/config/config-debug.properities').newDataInputStream())
+            buildConfigField "String", "HEREMAP_API_KEY", "\"${localConfig['debug.hereMapApiKey']}\""
+        }
         release {
+            localConfig.load(project.rootProject.file('data/config/config-release.properities').newDataInputStream())
+            buildConfigField "String", "HEREMAP_API_KEY", "\"${localConfig['release.hereMapApiKey']}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
