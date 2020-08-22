@@ -1,10 +1,10 @@
 package com.mkaszycki.poimap.ui.map.models
 
-import com.mkaszycki.poimap.domain.Mapper
-import com.mkaszycki.poimap.domain.Poi
-import com.mkaszycki.poimap.domain.PoiDetails
-import com.mkaszycki.poimap.domain.route.Route
 import com.google.android.gms.maps.model.LatLng
+import com.mkaszycki.poimap.domain.Mapper
+import com.mkaszycki.poimap.domain.poidetails.PoiDetails
+import com.mkaszycki.poimap.domain.pois.Poi
+import com.mkaszycki.poimap.domain.route.Route
 import javax.inject.Inject
 
 /**

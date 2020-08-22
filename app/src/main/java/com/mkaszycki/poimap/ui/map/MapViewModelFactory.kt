@@ -2,8 +2,8 @@ package com.mkaszycki.poimap.ui.map
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.mkaszycki.poimap.domain.GetPoiDetailsUseCase
-import com.mkaszycki.poimap.domain.GetPoisUseCase
+import com.mkaszycki.poimap.domain.poidetails.GetPoiDetailsUseCase
+import com.mkaszycki.poimap.domain.pois.GetPoisUseCase
 import com.mkaszycki.poimap.domain.route.GetRoute
 import com.mkaszycki.poimap.location.LocationListener
 import com.mkaszycki.poimap.ui.map.models.PoiDetailsMapper

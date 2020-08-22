@@ -1,7 +1,7 @@
 package com.mkaszycki.data
 
 import com.mkaszycki.data.api.wikipedia.response.PoiEntity
-import com.mkaszycki.poimap.domain.Poi
+import com.mkaszycki.poimap.domain.pois.Poi
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -25,7 +25,8 @@ class PoiEntityMapperTest {
             1.0,
             2.0
         )
-        val expected = Poi(1, 1.0, 2.0, "TestPoint")
+        val expected =
+            Poi(1, 1.0, 2.0, "TestPoint")
 
         Assert.assertEquals(expected, mapper.map(input))
     }

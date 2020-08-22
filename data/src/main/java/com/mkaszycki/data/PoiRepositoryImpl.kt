@@ -2,9 +2,10 @@ package com.mkaszycki.data
 
 import com.mkaszycki.data.api.wikipedia.PoiService
 import com.mkaszycki.data.api.wikipedia.response.toDomainPoi
-import com.mkaszycki.poimap.domain.Poi
-import com.mkaszycki.poimap.domain.PoiDetails
 import com.mkaszycki.poimap.domain.PoiRepository
+import com.mkaszycki.poimap.domain.helper.LatLngDomain
+import com.mkaszycki.poimap.domain.poidetails.PoiDetails
+import com.mkaszycki.poimap.domain.pois.Poi
 import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -13,16 +14,19 @@ class PoiRepositoryImpl @Inject constructor(
     private val poiService: PoiService
 ) :
     PoiRepository {
-    override fun getPois(lat: Double, lng: Double): Single<List<Poi>> {
-        return poiService.fetchPois(radius = radius, cords = "$lat|$lng", limit = limit)
-            .map { poisResponse ->
-                poisResponse.queryResult.pois.map { it.toDomainPoi() }
-            }
+    override fun getPois(position: LatLngDomain): Single<List<Poi>> {
+        return poiService.fetchPois(
+            radius = radius,
+            cords = "${position.latitude}|${position.longitude}",
+            limit = limit
+        ).map { poisResponse ->
+            poisResponse.queryResult.pois.map { it.toDomainPoi() }
+        }
     }
 
-    override fun getPoiDetails(id: Int): Single<PoiDetails> {
-        return poiService.fetchPoi(prop = property, id = id).flatMap { poiResponse ->
-            poiResponse.queryResult.pages["$id"]?.let { poiPage ->
+    override fun getPoiDetails(poiId: Int): Single<PoiDetails> {
+        return poiService.fetchPoi(prop = property, id = poiId).flatMap { poiResponse ->
+            poiResponse.queryResult.pages["$poiId"]?.let { poiPage ->
                 val imagesUrl = poiPage.images.map {
                     fetchImageUrl(it.fileName)
                 }
@@ -40,7 +44,11 @@ class PoiRepositoryImpl @Inject constructor(
                         }
                     }
                     .map {
-                        PoiDetails(poiPage.title, poiPage.description, it)
+                        PoiDetails(
+                            poiPage.title,
+                            poiPage.description,
+                            it
+                        )
                     }
             }
         }
